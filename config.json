@@ -1,0 +1,16 @@
+{
+    "model_type": "netflix_qwen3_inspired",
+    "architectures": [
+        "Qwen3Model"
+    ],
+    "vocab_size": 8192,
+    "d_model": 384,
+    "n_heads": 6,
+    "n_kv_groups": 2,
+    "n_layers": 7,
+    "d_ff": 1024,
+    "max_seq_len": 128,
+    "training_steps": 1000,
+    "best_validation_loss": 1.7522434949874879,
+    "dataset": "MMJagannath/SLM-Movie-Recommendation"
+}

@@ -1,0 +1,4 @@
+{% for message in messages %}<|{{ message['role'] }}|>
+{{ message['content'] }}{% if message['role'] == 'assistant' %}<|eos|>{% else %}<|end|>{% endif %}
+{% endfor %}{% if add_generation_prompt %}<|assistant|>
+{% endif %}
