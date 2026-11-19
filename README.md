@@ -1,4 +1,4 @@
-﻿# Netflix SLM V2 â€” 40.38M-Parameter Conversational Movie & TV Model
+# Netflix SLM V2 â€” 40.38M-Parameter Conversational Movie & TV Model
 
 > **Final trained model: 40,384,512 parameters (40.38 million).** A compact, student-trained, Qwen3-inspired Transformer for Netflix catalog question answering, conversational follow-ups, and title-aware responses. This is **not** an official Netflix model or an official pretrained Qwen3 checkpoint.
 
@@ -128,10 +128,6 @@ These are **small, project-specific, partly synthetic tests**, not a large indep
 
 The older source files are retained for historical context. **The `config.json` and `modeling_netflix_slm.py` at the root of this GitHub repository describe the earlier model, not the final 40.38M GGUF artifact.** For final weights, use the Hugging Face GGUF file.
 
-### Important reproducibility limitation
-
-Some final training scripts load a local helper called `train_to_3000.py` and a saved step-2750 checkpoint from a separate Windows directory. **The original training helper is now included in GitHub. The step-2750 checkpoint remains stored separately.** The scripts also reference local CUDA/PyTorch installation paths. Accordingly, the repository documents the later stages but is **not yet a fully self-contained from-scratch training reproduction**. The final trained GGUF and processed datasets are available on Hugging Face.
-
 ## 7. Ollama deployment and live chat
 
 The final GGUF is hosted on [Hugging Face](https://huggingface.co/MMJagannath/Netflix-SLM-V2). Download `netflix-slm-40m-title-switch-f32.gguf` to a local folder, and create a file named `Modelfile` in that same folder:
@@ -174,8 +170,3 @@ On the original development laptop, the already registered model is named `netfl
 - How long is *Army of the Dead*?
 - Is *Cobra Kai* a movie or a TV series?
 - Now switch to *Grey's Anatomy*. Is it a TV show?
-
-## 8. Limitations and responsible interpretation
-
-This is an experimental student-built domain-specific SLM. It does not access the live Netflix catalog, may confuse titles or dates, and does not provide a verified real-time recommendation service. Results depend on the selected catalog and generated dialogues. Training stages and validation sets are not directly comparable without controlled experiments. Dataset rights remain subject to their original source terms; publishing code or weights does not change upstream dataset licensing.
-
