@@ -1,22 +1,22 @@
-# Netflix SLM V2 — 40.38M-Parameter Conversational Movie & TV Model
+﻿# Netflix SLM V2 â€” 40.38M-Parameter Conversational Movie & TV Model
 
 > **Final trained model: 40,384,512 parameters (40.38 million).** A compact, student-trained, Qwen3-inspired Transformer for Netflix catalog question answering, conversational follow-ups, and title-aware responses. This is **not** an official Netflix model or an official pretrained Qwen3 checkpoint.
 
 ## Project links
 
-- **Model weights (GGUF) and processed datasets:** [Hugging Face — MMJagannath/Netflix-SLM-V2](https://huggingface.co/MMJagannath/Netflix-SLM-V2)
-- **Source code:** [GitHub — SLM-Movie-Recommendation](https://github.com/jagannath1473-ops/SLM-Movie-Recommendation)
+- **Model weights (GGUF) and processed datasets:** [Hugging Face â€” MMJagannath/Netflix-SLM-V2](https://huggingface.co/MMJagannath/Netflix-SLM-V2)
+- **Source code:** [GitHub â€” SLM-Movie-Recommendation](https://github.com/jagannath1473-ops/SLM-Movie-Recommendation)
 - **Catalog source reference:** [Netflix Movies and Series on Kaggle](https://www.kaggle.com/datasets/debayank2024/netflix-movies-and-series)
 
 ## 1. Overview
 
-This academic project develops and deploys a small, domain-specific language model to answer questions about Netflix movies and television series. Its development stages include metadata preparation, conversational question–answer generation, training a smaller baseline model, training and improving a **40.38M-parameter model**, targeted title-switch fine-tuning, evaluation, conversion to GGUF, and local Ollama chat demonstration.
+This academic project develops and deploys a small, domain-specific language model to answer questions about Netflix movies and television series. Its development stages include metadata preparation, conversational questionâ€“answer generation, training a smaller baseline model, training and improving a **40.38M-parameter model**, targeted title-switch fine-tuning, evaluation, conversion to GGUF, and local Ollama chat demonstration.
 
 **Final artifact:** `netflix-slm-40m-title-switch-f32.gguf` (~162 MB, F32 GGUF)  
 **Registered local Ollama name:** `netflix-slm-40m-title-switch-candidate`  
 **Training hardware for improved model:** NVIDIA RTX 4060 Laptop GPU (8 GB VRAM)
 
-## 2. Final model architecture — exact specifications
+## 2. Final model architecture â€” exact specifications
 
 | Component | Final model specification |
 | --- | --- |
@@ -84,7 +84,7 @@ The uploaded Python scripts document several stages. **Values described as defau
 | Context length | 512 tokens | 512 tokens | 512 tokens |
 | Default random seed | 20261119 | 20261119 | 20261119 |
 
-The Dialogue V2 stage uses a default **80% long-dialogue sampling ratio**, mixing newly prepared multi-turn conversations with original training examples. The repair script defaults to **3,000 fact-grounded title-switch training dialogues** and **80 validation dialogues**, generated from existing question–answer facts rather than external invented movie facts.
+The Dialogue V2 stage uses a default **80% long-dialogue sampling ratio**, mixing newly prepared multi-turn conversations with original training examples. The repair script defaults to **3,000 fact-grounded title-switch training dialogues** and **80 validation dialogues**, generated from existing questionâ€“answer facts rather than external invented movie facts.
 
 ### Pipeline at a glance
 
@@ -97,7 +97,7 @@ The Dialogue V2 stage uses a default **80% long-dialogue sampling ratio**, mixin
 7. Register the final GGUF in Ollama with the **custom role-token chat template** used during training.
 8. Compare answers and evaluate model behavior on small, project-specific tests.
 
-## 5. Evaluation results — small project-specific tests
+## 5. Evaluation results â€” small project-specific tests
 
 **Selected title-switch repair checkpoint (step 300):**
 
@@ -130,7 +130,7 @@ The older source files are retained for historical context. **The `config.json` 
 
 ### Important reproducibility limitation
 
-Some final training scripts load a local helper called `train_to_3000.py` and a saved step-2750 checkpoint from a separate Windows directory. **Those original training dependencies are not currently included in this GitHub repository.** The scripts also reference local CUDA/PyTorch installation paths. Accordingly, the repository documents the later stages but is **not yet a fully self-contained from-scratch training reproduction**. The final trained GGUF and processed datasets are available on Hugging Face.
+Some final training scripts load a local helper called `train_to_3000.py` and a saved step-2750 checkpoint from a separate Windows directory. **The original training helper is now included in GitHub. The step-2750 checkpoint remains stored separately.** The scripts also reference local CUDA/PyTorch installation paths. Accordingly, the repository documents the later stages but is **not yet a fully self-contained from-scratch training reproduction**. The final trained GGUF and processed datasets are available on Hugging Face.
 
 ## 7. Ollama deployment and live chat
 
@@ -178,3 +178,4 @@ On the original development laptop, the already registered model is named `netfl
 ## 8. Limitations and responsible interpretation
 
 This is an experimental student-built domain-specific SLM. It does not access the live Netflix catalog, may confuse titles or dates, and does not provide a verified real-time recommendation service. Results depend on the selected catalog and generated dialogues. Training stages and validation sets are not directly comparable without controlled experiments. Dataset rights remain subject to their original source terms; publishing code or weights does not change upstream dataset licensing.
+
